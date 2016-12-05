@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.vulcainreo.lifetracker.MainActivity" >
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:id="@+id/listView"
+        android:headerDividersEnabled="false" />
+
+    <Button
+        android:text="view all mac"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/viewAllMacButton"
+        android:onClick="viewAllMac"
+        android:layout_below="@+id/listView"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="44dp" />
+
+    <Button
+        android:text="Scan Mac"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/viewAllMacButton"
+        android:layout_toEndOf="@+id/viewAllMacButton"
+        android:layout_marginStart="64dp"
+        android:id="@+id/scanMac"
+        android:onClick="scanMac"/>
+
+    <Button
+        android:text="push to server"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/viewAllMacButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="33dp"
+        android:id="@+id/pushToServer"
+        android:onClick="pushToServer"/>
+
+
+</RelativeLayout>
