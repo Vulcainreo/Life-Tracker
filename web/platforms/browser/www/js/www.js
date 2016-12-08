@@ -1,6 +1,8 @@
+var cyjs;
+
 $(function(){
 
-var cy = cytoscape({
+cyjs = cytoscape({
           container: document.getElementById('cy'),
 
 elements: [ // list of graph elements to start with
@@ -43,4 +45,12 @@ elements: [ // list of graph elements to start with
 	
 
         });
+
+setTimeout(function(){
+	cyjs.add({
+	    group: "nodes",
+	    data: { weight: 75 },
+	    position: { x: 200, y: 200 }
+	});
+},3000);
 });

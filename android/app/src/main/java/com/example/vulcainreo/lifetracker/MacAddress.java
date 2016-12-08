@@ -7,14 +7,18 @@ package com.example.vulcainreo.lifetracker;
 public class MacAddress {
     int id;
     String address;
+    String name;
+    int rssi;
 
     public MacAddress() {
 
     }
 
-    public MacAddress(String address) {
+    public MacAddress(String address, String name, int rssi) {
 
         this.address = address;
+        this.name = name;
+        this.rssi = rssi;
     }
 
     public int getId() {
@@ -25,12 +29,17 @@ public class MacAddress {
         this.id = _id;
     }
 
-    public String getMacAddress() {
+    public String getAddress() {
         return this.address;
     }
 
-    public void setMacAddress(String macAddress) {
+    public void setAddress(String address) { this.address = address; }
 
-        this.address = macAddress;
-    }
+    public int getRssi() { return rssi; }
+
+    public void setRssi(int rssi) { this.rssi = rssi; }
+
+    public String getName() { return name; }
+
+    public void setName(String name) { this.name = name; }
 }

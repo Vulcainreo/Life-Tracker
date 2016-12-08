@@ -31,7 +31,7 @@ public class MacAdapter extends ArrayAdapter<MacAddress> {
         TextView tvAdresse = (TextView) convertView.findViewById(R.id.address);
         //TextView tvHome = (TextView) convertView.findViewById(R.id.tvHome);
         // Populate the data into the template view using the data object
-        tvAdresse.setText(mac.getMacAddress());
+        tvAdresse.setText(mac.getAddress() +"-"+ mac.getName() +"-"+ mac.getRssi());
         //tvHome.setText(user.hometown);
         // Return the completed view to render on screen
         return convertView;

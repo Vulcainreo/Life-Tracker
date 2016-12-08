@@ -42,9 +42,14 @@ public class MainActivity extends AppCompatActivity {
             String action = intent.getAction();
             if (BluetoothDevice.ACTION_FOUND.equals(action)) {
                 BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
-                mDeviceList.add(device.getAddress());
-                //Log.i("BT", device.getAddress());
-                db.addMac(new MacAddress(device.getAddress()));
+                String address = device.getAddress();
+                String name = intent.getStringExtra(device.EXTRA_NAME);
+                int rssi = intent.getShortExtra(device.EXTRA_RSSI, Short.MIN_VALUE);
+
+                mDeviceList.add(address+"\n"+name+" "+String.valueOf(rssi));
+                // ajout en base
+                db.addMac(new MacAddress(address, name, rssi));
+                // mise à jour de la liste sur la page principale
                 listView.setAdapter(new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1, mDeviceList));
             }
         }
