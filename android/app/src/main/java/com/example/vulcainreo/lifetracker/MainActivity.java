@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -16,6 +17,10 @@ import android.widget.Toast;
 
 import org.json.JSONArray;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.Writer;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -91,13 +96,13 @@ public class MainActivity extends AppCompatActivity {
         JSONArray jsArray = new JSONArray(listMacJson);
         Log.i("test", jsArray.toString().replaceAll("\\\\", ""));
 
-        //File file = new File(Environment.getExternalStorageDirectory()+"/test.json");
+        File file = new File(Environment.getExternalStorageDirectory()+"/test.json");
         try {
-        //    Writer output = new BufferedWriter(new FileWriter(file));
-        //    output.write(result.toString());
-        //    output.close();
+            Writer output = new BufferedWriter(new FileWriter(file));
+            output.write(jsArray.toString());
+            output.close();
         } catch (Exception e) {
-        //    Toast.makeText(getBaseContext(), "erreur ecriture fichier", Toast.LENGTH_LONG).show();
+            Toast.makeText(getBaseContext(), "erreur ecriture fichier", Toast.LENGTH_LONG).show();
         }
     }
 }
