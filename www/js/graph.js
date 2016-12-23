@@ -36,6 +36,6 @@ cyjs = cytoscape({
 
         });
 
-	setupData();
+	cySetupData();
 	
 });
